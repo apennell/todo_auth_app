@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+</head>
+<body>
+  <h2>Login</h2>
+  <!-- flash error message -->
+  <% flash.each do |key, value| %>
+     <%= content_tag :div, value, class: "flash #{key}" %>
+  <% end %>
+  
+  <!-- login form -->
+  <%= form_tag action: :create do %>
+
+    <%= label_tag :username, 'Username: ' %><br>
+    <%= text_field_tag :username, @user.username %><br>
+
+    <%= label_tag :password, 'Password: ' %><br>
+    <%= password_field_tag :password %><br>
+
+    <%= submit_tag 'Login' %>
+
+<% end %>
+</body>
+</html>
